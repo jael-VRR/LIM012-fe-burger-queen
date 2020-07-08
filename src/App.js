@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
+import hamburguesa from './hamburguesa.svg'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={hamburguesa} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <code>bienvenido</code>welcome.
         </p>
         <a
           className="App-link"
