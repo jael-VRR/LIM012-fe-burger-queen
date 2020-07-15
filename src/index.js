@@ -1,17 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+// import Main from './components/Main';
+import List from './components/list'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const container = document.getElementById('app');
+// cuando no tiene un mayo que y menor que decimos que es un componente
+// Pero a ReactDOM hay que darle un elemento autocerrado entonces procedemos a poner los simbolos
+// ReactDOM.render(<Main titleLogo="BurgerQueen" />, container);
+ReactDOM.render(<List />, container);
