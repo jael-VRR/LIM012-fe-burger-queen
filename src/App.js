@@ -1,25 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom"
+import Inicio from './components/Inicio';
+import OrdenesEspera from './components/OrdenesEspera';
+// import ListMenu from './components/List-Menu';
+import ListProducts from './components/List-Products';
+import BoxPedidos from './components/Box-Pedidos';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/OrdenesAtendidas">
+          <OrdenesEspera />
+        </Route>
+        <Route path="/OrdenesEspera">
+          <OrdenesEspera />
+        </Route>
+        <Route path="/Pedidos">
+          <BoxPedidos />
+        </Route>
+        <Route path ="/ListMenu">
+          {/* <ListMenu /> */}
+          <ListProducts />
+        </Route>
+        <Route path="/" >
+          <Inicio />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

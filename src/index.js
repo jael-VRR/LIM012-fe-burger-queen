@@ -1,10 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Main from './components/Main';
-import List from './components/list'
+import './index.css';
+import App from './App';
 
-const container = document.getElementById('app');
-// cuando no tiene un mayo que y menor que decimos que es un componente
-// Pero a ReactDOM hay que darle un elemento autocerrado entonces procedemos a poner los simbolos
-// ReactDOM.render(<Main titleLogo="BurgerQueen" />, container);
-ReactDOM.render(<List />, container);
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+
+
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import Main from './components/Main';
+// import Main from './components/Main.jsx'
+
+// const container = document.getElementById('app');
+// ReactDOM.render(<Main />, container);
