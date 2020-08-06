@@ -1,16 +1,18 @@
 body {
-  background: radial-gradient(120.6% 337.26% at 74.58% 62.61%, #FF8000 22.4%, rgba(255, 128, 0, 0.952146) 27.46%, rgba(255, 128, 0, 0.159034) 78.37%, rgba(255, 128, 0, 0) 100%);
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0;
 }
+.container {
+  max-width: 100%;  
+}
 .main-burger {
   padding: 0;
-}
-.container {
-  max-width: 100%;
+  background: radial-gradient(120.6% 337.26% at 74.58% 62.61%, #FF8000 22.4%, rgba(255, 128, 0, 0.952146) 27.46%, rgba(255, 128, 0, 0.159034) 78.37%, rgba(255, 128, 0, 0) 100%);
   width: 100%;
+  height: 100vh;
 }
+
 a {
   text-decoration: none;
   color: #ffffff;
@@ -66,7 +68,7 @@ a {
       padding-bottom: 50px;
       padding-left: 0;
     }
-    .box__phrase button{
+    .box__phrase-button{
       width: 120px;
       align-self: flex-start;
       height: 50px;
@@ -74,14 +76,20 @@ a {
       border: none;
       text-transform: uppercase;
       font-family: 'Muli', sans-serif;
-      color: #FF8000;
+      background: #ffffff;
       box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
       display: flex;
       justify-content: center;
       align-items: center;
       outline: none;
     }
-    .box__phrase button:hover{
+    .links{
+      color: #FF8000;
+    }
+    .links:hover{
+      color: #ffffff;
+    } 
+    .box__phrase-button:hover{
       color: #fff;
       background: #FF8000;
       outline: none;
