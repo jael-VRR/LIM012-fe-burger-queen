@@ -36,6 +36,14 @@ const ListProducts = () => {
         console.log(product)
         setOrder(prevState => [...prevState, product])
     }
+
+   
+
+  const ProductItemOrder = (id) =>{
+    const arrayFilter = order.filter((ele) => parseInt(ele.idOrder) !== parseInt(id))
+    setOrder(arrayFilter)
+}
+    
     return (
         <Fragment>
             <Navbar />
@@ -80,7 +88,9 @@ const ListProducts = () => {
                     }
                     </div>
                 </div>
-                <BoxPedidos order={order}/>
+                <BoxPedidos order={order}
+                
+                 ProductItemOrder={ProductItemOrder}/>
             </div>
         </Fragment>
     )
