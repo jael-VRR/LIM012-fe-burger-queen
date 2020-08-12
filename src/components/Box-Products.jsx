@@ -26,6 +26,7 @@ const BoxProducts = ({image, title, price, id, pruebita}) => {
         } else {
             const objProduct = {
                 id,
+                idOrder:Math.random(10) * 1000,
                 Descripcion: title,
                 Precio: (price*count),
                 Cantidad: count, 
