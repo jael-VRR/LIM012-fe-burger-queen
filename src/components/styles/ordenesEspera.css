@@ -1,0 +1,9 @@
+.card-order1{
+    background: wheat;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.card-order1 ul{
+    width: 30%;
+}

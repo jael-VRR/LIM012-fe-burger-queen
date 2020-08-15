@@ -137,3 +137,7 @@ a {
         z-index: -1;
       }
     }
+
+    .btn{
+      align-items: flex-end;
+    }

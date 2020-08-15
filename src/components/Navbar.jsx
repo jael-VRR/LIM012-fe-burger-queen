@@ -9,6 +9,7 @@ const Navbar = () => {
                 <span>Burger</span><span>Queen</span>
                  <img src={logo} alt="Logo"/>
             </div>
+          
         </>
     )
 }

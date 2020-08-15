@@ -20,25 +20,25 @@ const BoxPedidos = ({ order,ProductItemOrder}) => {
 
     };
 
-    const suma =getTotalSum(order)
+    const sum =getTotalSum(order)
     
     let today = new Date()
-
     const date = today.toLocaleString([], { hour12: true});
+    
 
     const send = () => {firebase.firestore().collection('Orders').add({ 
          client,
          Products:order,
-         Total: suma,
-         Fecha: date
+         Total: sum,
+         Fecha: date,
+         Status: 'Pendiente',
+         TimeWaitOrder: 0
         } 
     
     )
     history.push("/OrdenesEspera");
 }
     
-
-
     const btnEliminarItem = (event) => {
         event.preventDefault();
         ProductItemOrder(event.target.id)
@@ -87,9 +87,8 @@ const BoxPedidos = ({ order,ProductItemOrder}) => {
                     </div>
                     <p>TOTAL:${getTotalSum(order)}</p>
                     <p>CLIENTE:{client.client}</p>
-                    <button className="button-pedidos"><img className="waiter" src={waiter} alt="waiter" onClick={send}/>
-                   
-                    </button>
+                    <button className="button-pedidos"  onClick={send}><img className="waiter" src={waiter} alt="waiter"/>ENVIAR</button>
+                  
                 </div>
             </div>
         </Fragment>

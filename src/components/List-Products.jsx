@@ -46,7 +46,7 @@ const ListProducts = () => {
     
     return (
         <Fragment>
-            <Navbar />
+            <Navbar/>
             <div className="container-list">
                 <div className="list-product">
                     <ul>

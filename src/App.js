@@ -9,6 +9,7 @@ import OrdenesEspera from './components/OrdenesEspera';
 // import ListMenu from './components/List-Menu';
 import ListProducts from './components/List-Products';
 import BoxPedidos from './components/Box-Pedidos';
+import OrdenesAtendidas from './components/OrdenesAtendidas.jsx'
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/OrdenesAtendidas">
-          <OrdenesEspera />
+          <OrdenesAtendidas/>
         </Route>
         <Route path="/OrdenesEspera">
           <OrdenesEspera />
