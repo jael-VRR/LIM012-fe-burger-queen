@@ -1,8 +1,7 @@
 import React, { Fragment} from 'react'
 import Navbar from './Navbar'
 import { useState ,useEffect} from 'react'
-import { firebase } from '../firebase';
-
+import {getOrders} from '../controllers/order'
 
 
 
@@ -11,23 +10,11 @@ const  OrdenesAtendidas = () => {
 
  const [status,setStatus] = useState([])
 
- useEffect(() => {
-    setStatus([]);
-        firebase
-        .firestore()
-        .collection('Orders')
-        .onSnapshot((snap) => {
-            const data = [];
-            snap.forEach((doc) => {
-                data.push({
-                    id: doc.id,
-                    ...doc.data(),
-                });
-            });
-            setStatus(data);
-     
-        });
 
+
+useEffect(() => {
+  setStatus([]);
+  getOrders((data)=>setStatus(data))
 }, []);
 
 
@@ -44,6 +31,7 @@ const  OrdenesAtendidas = () => {
                                         <p>{item.Cantidad}  {item.Descripcion}  {item.Precio} </p>
                                     )}</p>
                                     <p>ESTADO:{item.Status}</p>
+                                    <p>Timer:{item.TimeWaitOrder}</p>
   
                                     </ul>
                             ))

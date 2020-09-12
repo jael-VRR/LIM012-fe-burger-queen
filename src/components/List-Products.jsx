@@ -17,7 +17,7 @@ const ListProducts = () => {
         const dataProducts = async() => {
             try{
                 const db = firebase.firestore()
-                const data = await db.collection("Products").get()
+                const data = await db.collection('Products').get()
                 const arrayData = data.docs.map((doc) => (
                     {
                         id:doc.id,
@@ -42,6 +42,7 @@ const ListProducts = () => {
   const ProductItemOrder = (id) =>{
     const arrayFilter = order.filter((ele) => parseInt(ele.idOrder) !== parseInt(id))
     setOrder(arrayFilter)
+    
 }
     
     return (
@@ -53,9 +54,9 @@ const ListProducts = () => {
                         <li>
                             <button className="list__button" onClick={(e) =>{
                             e.preventDefault();
-                            setState(prevState => ({ ...prevState, type: 'Desayuno' }))
+                            setState(prevState => ({ ...prevState, type: 'desayuno' }))
                             // setCount(prevCount => prevCount - 1)
-                            }}>desayuno</button>
+                            }}>Desayuno</button>
                         </li>
                         <li>
                             <button className="list__button" onClick={(e) =>{

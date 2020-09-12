@@ -4,13 +4,13 @@ import './styles/inicio.css'
 
 const Navbar = () => {
     return (
-        <>
+        
             <div className="container__header">
-                <span>Burger</span><span>Queen</span>
+                <span>Burger Queen</span>
                  <img src={logo} alt="Logo"/>
             </div>
           
-        </>
+        
     )
 }
 

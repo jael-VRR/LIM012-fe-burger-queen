@@ -1,50 +1,35 @@
 import React, { Fragment } from 'react'
 import Navbar from './Navbar'
-import { firebase } from '../firebase';
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import './styles/ordenesEspera.css';
+import {getOrders,updateStatusInOrder} from '../controllers/order'
 
-const OrdenesEspera = ({ date }) => {
+const OrdenesEspera = () => {
     let history = useHistory();
 
     const [detailsOrders, setDetailsOrders] = useState([])
 
+   
     useEffect(() => {
-        setDetailsOrders([]);
-        firebase
-            .firestore()
-            .collection('Orders')
-            .onSnapshot((snap) => {
-                const data = [];
-                snap.forEach((doc) => {
-                    data.push({
-                        id: doc.id,
-                        ...doc.data(),
-                    });
-                });
-                setDetailsOrders(data);
-             console.log(data)
-            });
-
+    setDetailsOrders([]);
+    getOrders(data=>setDetailsOrders(data)
+);
     }, []);
-
     console.log(detailsOrders)
 
-
+    let today1 = new Date()
+    const time2 = today1.toLocaleString();
   
 
     const checklistOrder = (e) => {
         const id = e.target.value
-        //const arrayWithStatus = detailsOrders.filter((el) => (el.id) === (id))
-        //setDetailsOrders(arrayWithStatus)
-        //const updateStatus = arrayWithStatus[0]
-        //updateStatus.Status= 'readyOrder'
-        firebase.firestore().collection('Orders').doc(id).update({
+        updateStatusInOrder(id,({
+            Fecha: time2,
             Status: 'Pedido listo',
             TimeWaitOrder: 0
 
-        })
+        }))
         history.push("/OrdenesAtendidas");
     };
 
@@ -58,7 +43,8 @@ const OrdenesEspera = ({ date }) => {
                             <p className="box__title">CLIENTE:{item.client.client}</p>
                             <p>PEDIDO REALIZADO A LAS :{item.Fecha}</p>
                             <div>DETALLES PEDIDO:{item.Products.map((item) =>
-                                <p key={item.id}>{item.Cantidad}    {item.Descripcion}</p>
+                                <p key={item.id}>{item.Cantidad}    {item.Descripcion} {item.Status}</p>
+                                
                             )}</div>
                            
                             <input
